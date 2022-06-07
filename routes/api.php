@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Auth\Events\Login;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +15,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::group(['Login'], function(){
+    Route::post('register', [App\Http\Controllers\UserController::class, 'register']);
+    Route::post('login', [App\Http\Controllers\UserController::class, 'login']);
+    Route::post('logout', [App\Http\Controllers\UserController::class, 'logout']);
+});
+Route::group(['pesquisa'], function(){
+Route::apiResource('users', App\Http\Controllers\UserController::class)->names('user');
+Route::apiResource('categories', \App\Http\Controllers\CategoryController::class)->names('category');
+Route::apiResource('folder_levels', App\Http\Controllers\FolderLevelController::class)->names('folder_level');
 });
