@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFolderLevelsTable extends Migration
+class CreateDocumentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,12 @@ class CreateFolderLevelsTable extends Migration
      */
     public function up()
     {
-        Schema::create('folder_levels', function (Blueprint $table) {
+        Schema::create('documents', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('type');
+            $table->foreignId('id_category')->references('id')->on('categories');
+            $table->foreignId('id_sector')->references('id')->on('sectors');
             $table->timestamps();
         });
     }
@@ -26,6 +30,6 @@ class CreateFolderLevelsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('folder_levels');
+        Schema::dropIfExists('documents');
     }
 }

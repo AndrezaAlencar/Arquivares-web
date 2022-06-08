@@ -14,14 +14,17 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+Route::post('login', [App\Http\Controllers\UserController::class, 'login']);
 
-Route::group(['Login'], function(){
     Route::post('register', [App\Http\Controllers\UserController::class, 'register']);
-    Route::post('login', [App\Http\Controllers\UserController::class, 'login']);
+    
     Route::post('logout', [App\Http\Controllers\UserController::class, 'logout']);
-});
-Route::group(['pesquisa'], function(){
+
+    
+
+Route::group(['prefix'=>'access', 'middleware'=>['auth:sanctum']], function(){
 Route::apiResource('users', App\Http\Controllers\UserController::class)->names('user');
 Route::apiResource('categories', \App\Http\Controllers\CategoryController::class)->names('category');
-Route::apiResource('folder_levels', App\Http\Controllers\FolderLevelController::class)->names('folder_level');
+Route::apiResource('folderlevels', App\Http\Controllers\FolderLevelController::class)->names('folder_levels');
+Route::apiResource('documents', \App\Http\Controllers\DocumentController::class)->names('documents');
 });

@@ -44,19 +44,13 @@ class UserController extends Controller
    
     public function logout(Request $request)
     {
+        // dd(auth()->user());
         Auth::user()->tokens()->delete();
         return ['message' =>'logout efetuado'];
     }
 
-    public function show(Request $request, $id)
-    {
-        $model = User::find($id);
-        return $model;
-    }
-    
-    public function destroy(Request $request, $id){
-        $model = User::find($id);
-        $model->delete();
-        return null;
+    public function index(){
+        $user = User::latest()->paginate(10);
+        return view('users.index', compact('users'));
     }
 }
