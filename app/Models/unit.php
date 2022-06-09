@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class unit extends Model
 {
     use HasFactory;
+    protected $table = 'units';
+    protected $fillable = ['id', 'name','active'];
+    public function sector(){
+        return $this->hasMany(Sector::class);
+    }
+
 }

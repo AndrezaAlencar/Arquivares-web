@@ -15,6 +15,9 @@ class CreateFileTagsTable extends Migration
     {
         Schema::create('file_tags', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->foreignId('file_id')->references('id')->on('files');
+            $table->foreignId('tag_id')->references('id')->on('tags');
             $table->timestamps();
         });
     }

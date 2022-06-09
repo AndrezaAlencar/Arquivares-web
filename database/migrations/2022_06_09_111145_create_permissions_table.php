@@ -15,7 +15,9 @@ class CreatePermissionsTable extends Migration
     {
         Schema::create('permissions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_user')->references('id')->on('users');
+            $table->string('name');
+            $table->foreignId('folder_id')->references('id')->on('folders');
+            $table->foreignId('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

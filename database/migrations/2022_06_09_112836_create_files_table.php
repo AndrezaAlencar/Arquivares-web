@@ -15,6 +15,9 @@ class CreateFilesTable extends Migration
     {
         Schema::create('files', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->foreignId('folder_id')->references('id')->on('folders');
+            $table->foreignId('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }
