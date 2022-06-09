@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSectorsTable extends Migration
+class CreateFileTagsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,8 @@ class CreateSectorsTable extends Migration
      */
     public function up()
     {
-        Schema::create('sectors', function (Blueprint $table) {
+        Schema::create('file_tags', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->foreignId('id_unit')->references('id')->on('units');
             $table->timestamps();
         });
     }
@@ -28,6 +26,6 @@ class CreateSectorsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sectors');
+        Schema::dropIfExists('file_tags');
     }
 }

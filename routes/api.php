@@ -23,8 +23,9 @@ Route::post('login', [App\Http\Controllers\UserController::class, 'login']);
     
 
 Route::group(['prefix'=>'access', 'middleware'=>['auth:sanctum']], function(){
+Route::apiResource('units', App\Http\Controllers\UnitController::class)->names('unit');
 Route::apiResource('users', App\Http\Controllers\UserController::class)->names('user');
-Route::apiResource('categories', \App\Http\Controllers\CategoryController::class)->names('category');
+Route::apiResource('categories', App\Http\Controllers\CategoryController::class)->names('category');
 Route::apiResource('folderlevels', App\Http\Controllers\FolderLevelController::class)->names('folder_levels');
-Route::apiResource('documents', \App\Http\Controllers\DocumentController::class)->names('documents');
+Route::apiResource('documents', App\Http\Controllers\DocumentController::class)->names('documents');
 });
