@@ -3,8 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\files;
-use App\Http\Requests\StorefilesRequest;
-use App\Http\Requests\UpdatefilesRequest;
+use App\Http\Requests\filesRequest;
 
 class FilesController extends Controller
 {
@@ -34,7 +33,7 @@ class FilesController extends Controller
      * @param  \App\Http\Requests\StorefilesRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StorefilesRequest $request)
+    public function store(filesRequest $request)
     {
         //
     }
@@ -68,7 +67,7 @@ class FilesController extends Controller
      * @param  \App\Models\files  $files
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatefilesRequest $request, files $files)
+    public function update(filesRequest $request, files $files)
     {
         //
     }

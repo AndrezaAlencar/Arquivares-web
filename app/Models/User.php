@@ -43,7 +43,7 @@ class User extends Authenticatable
     ];
 
     public function permission(){
-        return $this->hasMany(permissions::class);
+        return $this->hasMany(Permissions::class);
     }
     public function file(){
         return $this->hasMany(File::class);

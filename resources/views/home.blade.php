@@ -1,6 +1,5 @@
 @extends('layouts.app')
-<!-- Favicons -->
-<link type="image/png" sizes="120x120" rel="icon" href=".../icons8-fita-de-bookmark-120.png">
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
