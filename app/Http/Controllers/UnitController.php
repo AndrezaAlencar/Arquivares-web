@@ -15,13 +15,9 @@ class UnitController extends Controller
      */
     public function index(Request $request)
     { 
-        $models = Unit::get();
-        if($request['active']==true){
-            $models = Unit::where('active', true)->get();
-        }else{
-            $models = Unit::where('active', false)->get();
-        }
-        return response()->view('unit',['models'=>$models]);
+        $models = Unit::where('active', true)->get();
+         
+        return view('unit',['models'=>$models]);
         
     }
 
@@ -30,31 +26,19 @@ class UnitController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function register()
     {
-        //
+        return view('unitRegister');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreunitRequest  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(UnitRequest $request)
+   
+    public function create(Request $request)
     {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\unit  $unit
-     * @return \Illuminate\Http\Response
-     */
-    public function show(unit $unit)
-    {
-        //
+        $model = new Unit();
+        $model->name = $request->name;
+        $model->active = $request->active;
+        $model->save();
+        return view('unitRegister');
     }
 
     /**
@@ -75,10 +59,7 @@ class UnitController extends Controller
      * @param  \App\Models\unit  $unit
      * @return \Illuminate\Http\Response
      */
-    public function update(UnitRequest $request, unit $unit)
-    {
-        //
-    }
+    
 
     /**
      * Remove the specified resource from storage.

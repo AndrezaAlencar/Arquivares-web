@@ -14,11 +14,11 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::post('login', [App\Http\Controllers\UserController::class, 'login']);
+// Route::post('login', [App\Http\Controllers\UserController::class, 'login']);
 
-    Route::post('register', [App\Http\Controllers\UserController::class, 'register']);
+//     Route::post('register', [App\Http\Controllers\UserController::class, 'register']);
     
-    Route::post('logout', [App\Http\Controllers\UserController::class, 'logout']);
+//     Route::post('logout', [App\Http\Controllers\UserController::class, 'logout']);
 
     
 
@@ -26,5 +26,5 @@ Route::group(['prefix'=>'access', 'middleware'=>['auth:sanctum']], function(){
     Route::apiResource('units', App\Http\Controllers\UnitController::class)->names('unit');
     Route::apiResource('users', App\Http\Controllers\UserController::class)->names('user');
     Route::apiResource('folders', App\Http\Controllers\FolderController::class)->names('folder');
-    Route::apiResource('files', App\Http\Controllers\FileController::class)->names('file');
+    Route::apiResource('files', App\Http\Controllers\FilesController::class)->names('file');
 });

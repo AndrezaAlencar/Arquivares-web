@@ -22,7 +22,6 @@ Auth::routes();
 
 Route::get('/index', [App\Http\Controllers\UserController::class, 'index'])->name('index');
 Route::get('/unit', [App\Http\Controllers\UnitController::class, 'index'])->name('unit');
-
-Auth::routes();
+Route::apiResource('/unitRegister', [App\Http\Controllers\UnitController::class, 'register'])->names('unitRegister');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
