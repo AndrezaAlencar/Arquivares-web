@@ -26,49 +26,30 @@ class UnitController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function register()
-    {
-        return view('unitRegister');
-    }
+    
+      
 
    
     public function create(Request $request)
     {
-        $model = new Unit();
-        $model->name = $request->name;
-        $model->active = $request->active;
-        $model->save();
+        
         return view('unitRegister');
+     }
+
+    public function store(Request $request)
+    {
+          $model = new Unit();
+          $model->name = $request->name;
+          $model->active = $request->active;
+          $model->save();
+         return view('unitRegister');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\unit  $unit
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(unit $unit)
+    public function destroy($id)
     {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateunitRequest  $request
-     * @param  \App\Models\unit  $unit
-     * @return \Illuminate\Http\Response
-     */
-    
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\unit  $unit
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(unit $unit)
-    {
-        //
+        $model = Unit::find($id);
+        $units = Unit::where('unit_id', $model->id)->get();
+        $model->delete();
+        return 'unidade apagada';
     }
 }

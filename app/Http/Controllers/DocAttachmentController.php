@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\folder;
-use App\Http\Requests\StorefolderRequest;
-use App\Http\Requests\UpdatefolderRequest;
+use App\Models\doc_attachment;
+use App\Http\Requests\Storedoc_attachmentRequest;
+use App\Http\Requests\Updatedoc_attachmentRequest;
 
-class FolderController extends Controller
+class DocAttachmentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -31,10 +31,10 @@ class FolderController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StorefolderRequest  $request
+     * @param  \App\Http\Requests\Storedoc_attachmentRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StorefolderRequest $request)
+    public function store(Storedoc_attachmentRequest $request)
     {
         //
     }
@@ -42,10 +42,10 @@ class FolderController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\folder  $folder
+     * @param  \App\Models\doc_attachment  $doc_attachment
      * @return \Illuminate\Http\Response
      */
-    public function show(folder $folder)
+    public function show(doc_attachment $doc_attachment)
     {
         //
     }
@@ -53,10 +53,10 @@ class FolderController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\folder  $folder
+     * @param  \App\Models\doc_attachment  $doc_attachment
      * @return \Illuminate\Http\Response
      */
-    public function edit(folder $folder)
+    public function edit(doc_attachment $doc_attachment)
     {
         //
     }
@@ -64,11 +64,11 @@ class FolderController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdatefolderRequest  $request
-     * @param  \App\Models\folder  $folder
+     * @param  \App\Http\Requests\Updatedoc_attachmentRequest  $request
+     * @param  \App\Models\doc_attachment  $doc_attachment
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatefolderRequest $request, folder $folder)
+    public function update(Updatedoc_attachmentRequest $request, doc_attachment $doc_attachment)
     {
         //
     }
@@ -76,10 +76,10 @@ class FolderController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\folder  $folder
+     * @param  \App\Models\doc_attachment  $doc_attachment
      * @return \Illuminate\Http\Response
      */
-    public function destroy(folder $folder)
+    public function destroy(doc_attachment $doc_attachment)
     {
         //
     }

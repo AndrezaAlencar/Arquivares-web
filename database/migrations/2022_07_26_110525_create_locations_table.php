@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFileTagsTable extends Migration
+class CreateLocationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateFileTagsTable extends Migration
      */
     public function up()
     {
-        Schema::create('file_tags', function (Blueprint $table) {
+        Schema::create('locations', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->foreignId('file_id')->references('id')->on('files');
-            $table->foreignId('tag_id')->references('id')->on('tags');
+            $table->foreignId('id_sector')->references('id')->on('sectors');
+            // $table->foreignId('id_docs')->references('id')->on('docs');
+            $table->string('description');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreateFileTagsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('file_tags');
+        Schema::dropIfExists('locations');
     }
 }

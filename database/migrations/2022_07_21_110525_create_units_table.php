@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFoldersTable extends Migration
+class CreateUnitsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,22 @@ class CreateFoldersTable extends Migration
      */
     public function up()
     {
-        Schema::create('folders', function (Blueprint $table) {
+        Schema::create('units', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('id_city')->references('id')->on('cities');
             $table->string('name');
-            $table->foreignId('sector_id')->references('id')->on('sectors');
+            $table->boolean('active');
             $table->timestamps();
         });
     }
-    
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
     public function down()
     {
-        Schema::dropIfExists('folders');
+        Schema::dropIfExists('units');
     }
 }

@@ -20,8 +20,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/index', [App\Http\Controllers\UserController::class, 'index'])->name('index');
+//Route::get('/index', [App\Http\Controllers\UserController::class, 'index'])->name('index');
 Route::get('/unit', [App\Http\Controllers\UnitController::class, 'index'])->name('unit');
-Route::apiResource('/unitRegister', [App\Http\Controllers\UnitController::class, 'register'])->names('unitRegister');
+Route::resource('/unitRegister', App\Http\Controllers\UnitController::class)->names('unitRegister');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

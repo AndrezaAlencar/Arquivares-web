@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Doc;
 use Illuminate\Auth\Events\Login;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -21,10 +22,4 @@ use Illuminate\Support\Facades\Route;
 //     Route::post('logout', [App\Http\Controllers\UserController::class, 'logout']);
 
     
-
-Route::group(['prefix'=>'access', 'middleware'=>['auth:sanctum']], function(){
-    Route::apiResource('units', App\Http\Controllers\UnitController::class)->names('unit');
-    Route::apiResource('users', App\Http\Controllers\UserController::class)->names('user');
-    Route::apiResource('folders', App\Http\Controllers\FolderController::class)->names('folder');
-    Route::apiResource('files', App\Http\Controllers\FilesController::class)->names('file');
-});
+Route::post('docs', [App\Http\Controllers\DocController::class, 'store'])->name('doc');
